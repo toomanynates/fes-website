@@ -2,11 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 * {
-    color:#f00;
     font-family: 'Lato', sans-serif;
     padding: 0%;
     margin: 0%;
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 h1, h2, h3, h4, h5, h6, span {
@@ -16,19 +19,32 @@ h1, h2, h3, h4, h5, h6, span {
 }
 
 a {
-    color: #000;
     text-decoration: none;
+    position: relative;
+    transition: all 300ms ease;
 }
 
-
-i {
-    color: #fff;
+.link__hover-effect:after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 0%;
+    bottom: -3px;
+    right: 0;
+    transition: all 300ms ease ;
 }
 
-/* i can't get my icons to change color */
-.fa-linkedin-in,
-.about-me__icon {
-    color: #000;
+.link__hover-effect--white::after {
+    background-color: #fff;
+}
+
+.link__hover-effect--black::after {
+    background-color: #000;
+}
+
+.link__hover-effect:hover:after {
+    width: 100%;
+    left: 0;
 }
 
 p {
@@ -57,6 +73,7 @@ li {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
+    padding: 0 12px;
 }
 
 .section__title {
@@ -81,12 +98,13 @@ nav
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
+    padding: 0 12px;
 }
 
 .personal__logo {
     font-size: 24px;
     color: #63b;
-    margin: 0 12px;
+    margin: 0 12px; /* top right bottom left */
     font-weight: bold;
 }
 
@@ -126,11 +144,44 @@ nav
     padding: 40px 20px;
 }
 
-.about-me__link {
-    color: #0f0;
-    font-size: 20px;
-    /*text-decoration: none; */ /* handled with a tag */
-    padding: 0 16px;
+.about-me__picture {
+    width: 100%;
+}
+
+.about-me__picture--mask {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+    margin-bottom: 16px;
+    animation: scale-up 800ms 1s backwards;
+}
+
+@keyframes scale-up {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.about-me__img--container {
+    display: flex;
+    align-items: center;
+}
+
+.about-me__img {
+    width: 100%;
+}
+
+.about-me__link:hover,
+.project__description--link:hover {
+    opacity: 0.6;
 }
 
 .about-me__info {
@@ -151,34 +202,52 @@ nav
 
 .about-me__info--title {
     margin-bottom: 16px;
+    animation: fade-up 650ms 400ms backwards;
+}
+
+.wave {
+    display: inline-block;
+    animation: animate-wave 500ms ease-out infinite;
+}
+
+@keyframes animate-wave {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
 }
 
 .about-me__info--para {
     color: #000;
     font-size: 1.25rem;
     margin: 0 0 16px;
+    animation: fade-up 650ms 600ms backwards;
 }
 
-.about-me__picture {
-    width: 100%;
+.about-me__links {
+    animation: fade-up 650ms 800ms backwards;
+}
+.about-me__link {
+    color: #000;
+    font-size: 20px;
+    /*text-decoration: none; */ /* handled with a tag */
+    padding: 0 16px;
 }
 
-.about-me__picture--mask {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
-    margin-bottom: 16px;
-}
-
-.about-me__img--container {
-    display: flex;
-    align-items: center;
-}
-
-.about-me__img {
-    width: 100%;
+@keyframes fade-up {
+    0% {
+        opacity: 0;
+        transform: translateY(20px)
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0)
+    }
 }
 
 /* LANGUAGES */
@@ -296,12 +365,17 @@ nav
     font-size: 20px;
     color: #fff;
     text-decoration: none;
+    margin: 16px 0 0 0; /* top right bottom left */
+}
+
+.project__description--link {
+    margin: 0 16px 0 0; /* top right bottom left */
 }
 
 .project__description--title,
 .project__description--sub-title,
 .project__description--para,
-.project__description--links {
+a{
     text-align: left;
     color: #fff;
     /*opacity: 1;*/
@@ -323,11 +397,32 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    jcc
+    justify-content: center;
 }
 
-.footer__logo {
+.footer__logo--popper {
+    position: absolute;
+    right: 0;
+    top: 15px;
+    color: #fff;
+    opacity: 0;
+    transition: all 300ms ease;
+}
 
+.footer__anchor {
+    margin: 0 0 20px; /* top right bottom left */
+    position: relative;
+}
+
+.footer__anchor:hover .footer__logo--popper {
+    transform: translateX(60px);
+    opacity: 1;
+}
+
+.footer__copyright {
+    color: #fff;
+    font-size: 14px;
+    margin-top: 8px;
 }
 
 .footer__logo--img {
@@ -353,4 +448,86 @@ footer {
 
 .link__hover-effect--white {
 
+}
+
+/* RESPONSIVE DESIGN */
+/* for smaller screens, make the language icons take up more space */
+
+@media (max-width: 768px) {
+    nav {
+        height: 68px;
+        margin: 0px 0 0 0; /* top right bottom left */;
+    }
+
+    .personal__logo {
+        font-size: 18px;
+        margin: 10px 0 0 0; /* top right bottom left */
+        padding: 0;
+    }
+
+    .nav__link--list {
+        /*display: none;*/
+        height: 10%;
+        font-size: 14px;
+    }
+
+    .about-me__info--title {
+        font-size: 24px;
+    }
+
+    .about-me__info--para {
+        font-size: 1rem;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .language   {
+        width: calc(100% / 4);
+    }
+
+    .project__description {
+        margin: 0 24px; /* top right bottom left */
+        max-width: 90%;
+    }
+    .project__description--title {
+        font-size:24px;
+    }
+    .project__description--sub-title {
+        font-size:medium;
+    }
+    .project__description--para {
+        font-size:small; 
+    }
+}
+
+@media (max-width: 480px) {
+    .nav__link:not(:last-child) {
+        display: none;
+    }
+
+    .project__description {
+        padding: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    .project__description--title {
+        text-align: center;
+    }
+
+    .project__description--sub-title {
+        text-align: center;
+    }
+
+    .project__description--para {
+        display: none;
+    }
+
+    .project__description--links {
+        display: flex;
+        justify-content: center;
+        margin: 8px; /* top right bottom left */
+    }
 }
