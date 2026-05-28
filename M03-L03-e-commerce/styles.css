@@ -1,0 +1,469 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.purple {
+  color: #7342d6;
+}
+
+.no-cursor {
+  cursor: not-allowed;
+}
+
+#landing,
+#features {
+  background-color: #ddf; /* make it lighter than the purple color */
+}
+
+header {
+  height: calc(100vh - 100px);
+  display: flex;
+  justify-content: center;
+}  
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  padding: 56px 0;
+
+}
+
+.row {
+  width: 90%; 
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header__description {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+img {
+  width: 100%;
+}
+
+.logo {
+  width: 180px;
+}
+
+nav {
+  height: 80px;
+  display: flex;
+}
+
+.nav__container {
+  height: 80px;
+  display: flex;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1000px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0% 24px;
+}
+
+.nav__links {
+  /*display: flex;*/
+  margin-left: 16px;
+  text-decoration: none;
+  font-size: medium;
+  font-weight: bold;
+  color: #74d;
+}
+
+.nav__link {
+  text-decoration: none;
+  padding: 8px;
+}
+
+.nav__link--primary {
+  border: 2px solid #74d;
+  border-radius: 6px;
+}
+
+.nav__link:hover {
+  text-decoration: underline;
+}
+
+.nav__link--primary:hover {
+  text-decoration: none; 
+}
+
+.fa-bars,
+.fa-xmark {
+  font-size: x-large;
+  margin: 0 24px;
+}
+
+.btn__menu {
+  background-color: transparent;
+  border: none;
+  color: #74d;
+  display: none;
+}
+
+.menu__backdrop {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #222;
+  z-index: 10;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 300ms;
+}
+
+.menu--open .menu__backdrop {
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Override scrolling when menu is open. Max out the height and hide everything else */
+.menu--open {
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.menu__links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.menu__list {
+  padding: 24px;
+}
+
+.menu__link {
+  text-decoration: none;
+  font-size: 24px;
+  color: #ddf;
+}
+
+.btn__menu {
+  background-color: transparent;
+  font-size: 40px;
+  border: none;
+  text-align: center;
+}
+
+.btn__menu--close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 40px;
+  color: #fff;
+  padding: 8px;
+}
+
+ul {
+  display: flex;  /* make them side by side */
+}
+
+li {
+  list-style-type: none;
+  margin-left: 24px; /* add some space between the links */
+}
+
+h1 {
+  font-size: 56px;
+  color: #7342d6; 
+  margin-bottom: 16px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 32px;
+}
+
+.header__container {
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  padding: 0 24px;
+} 
+
+.header__img--wrapper {
+  z-index: 2;
+  margin-top: 24px;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+.btn {
+  background-color: #7342d6;
+  color: white;
+  margin: 24px;
+  padding: 12px 24px;
+  font-size: large;
+  border-radius: 6px;
+  border: none;
+}
+
+/* HIGHLIGHTS */
+
+#highlights {
+  position: relative;
+  max-width: 100vw;
+}
+
+#highlights:after,
+#highlights:before {
+  background: url('assets/wave.svg');
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 15vw;
+  left: 0;
+  z-index: 1;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#highlights:before {
+  transform: translateY(-100%);
+  top: 5px;
+}
+
+#highlights:after {
+  transform: translateY(100%) rotate(180deg);
+  bottom: 1px;
+}
+
+.highlight__wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.highlight {
+  padding: 24px 8px 0;
+  width: calc(100% / 3);
+  display: flex;
+  align-items: center; /* not align-content */
+  flex-direction: column;
+}
+
+.highlight__para {
+  text-align: center; /* not justify */
+  max-width: 240px;
+}
+
+.highlight__img {
+  border: 2px solid hsla(260, 69%, 57%, 0.5);
+  color: #74d;
+  border-radius: 8px;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: x-large;
+  margin-bottom: 24px;
+}
+
+.highlight__subtitle {
+  font-size: larger;
+  margin: 0 0 12px 0; /* top right bottom left */
+}
+
+/* FEATURES */
+
+#features {
+  padding-top: 8vw;
+}
+
+.books {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 24px 0;
+}
+
+.book {
+  width: 25%;
+  padding: 15px;
+
+}
+
+.book:hover .book__img {
+  transform: scale(1.02);
+}
+
+.book__img {
+  transition: all 300ms ease;
+}
+
+.book__img--wrapper {
+  border-radius: 10px 10px;  /* 10% 40%; */ 
+  overflow: hidden;
+  display: flex;  /* this resolves a crop transition problem but i don't know why */
+  cursor: no-drop;
+}
+
+.book__title {
+  margin: 16px 0 8px 0;
+  font-size: large;
+}
+
+.book__title:hover {
+  text-decoration: underline;
+  cursor: not-allowed;
+}
+
+.book__ratings {
+  display: flex;
+  gap: 2px;
+  white-space: nowrap;
+  font-size: clamp(10px, 2vw, 16px);
+  margin-bottom: 8px;
+  color: #fb2;
+}
+
+.book__price--normal {
+  margin: 0 8px 0 0;
+  text-decoration: line-through;
+  color: gray;
+}
+
+/* RECENT */
+
+#recent {
+  /*flex-wrap: wrap;*/
+  .book__title {
+    font-size: medium;
+  }
+
+  .book {
+    width: 20%;
+  }
+}
+
+/* EXPLORE */
+
+#explore {
+  background:#ddf;
+}
+
+.row__column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* FOOTER */
+
+footer {
+  background: #222;
+}
+
+.footer__link {
+  color: #ddf;
+}
+
+.footer__list {
+  margin: 24px 0;
+  color: #ddf;
+  display: flex;
+  gap: 4vw;
+}
+
+.footer__logo--img {
+  /* invert, then unify svg color, then unify brightness, then specify overall brightness */
+  filter: invert(1) grayscale(1) brightness(200%) brightness(0.9);
+  width: 50vw;
+  max-width: 400px;
+}
+
+.footer__copyright {
+  margin-top: 24px;
+  color:#ddf;
+}
+
+@media (max-width: 768px) {
+  .header__description {
+    padding: 0 16px;
+  }
+
+  h1 {
+    font-size: xx-large;
+  }
+
+  h2 {
+    font-size: x-large;
+  }
+
+  .btn {
+    font-size: medium;
+  }
+
+  /* HIGHLIGHTS */
+
+  .highlight {
+    width: 100%;
+  }
+
+  /* Special formatting for everything but the last child. It wasn't necessary for me to do this
+     because I formatted spacing from the top instead of the bottom.
+
+  .highlight:not(:last-child) {
+    margin-bottom: 24px;
+  }
+  */
+
+  /* FEATURED */
+  .book {
+    width: 50%; /* two books per row */
+  }
+
+  /* RECENT */
+  #recent .book {
+    width: 50%;
+  }
+
+  /* FOOTER */ 
+
+}
+
+
+@media (max-width: 550px) {
+  .nav__links {
+    display: none;
+  }
+
+  .btn__menu {
+    display: block;
+  }
+
+}
+/* resume 27:51 */
