@@ -1,7 +1,13 @@
+/**************************************************************
+ * There are 3 methods shown below for reading promise data
+ * They are organized from messiest (.then) to best (async/await).
+ **************************************************************/
+
 // assume html with <p class="name">Name: </p>
 const name = document.querySelector(".name");
 console.log(name);
 
+//////////////////////////////////////////////////////////////
 // Method 1: operate directly on the promise returned by fetch.
 // Messy because you can't do anything with this later. 
 fetch("https://jsonplaceholder.typicode.com/users").then(response => {  // fetch the route and return a promise
@@ -11,6 +17,7 @@ fetch("https://jsonplaceholder.typicode.com/users").then(response => {  // fetch
   })
 })
 
+//////////////////////////////////////////////////////////////
 // Method 2: return the promise from the first then() and chain another then() to it
 // Less messy because we have clear separation of tasks
 console.log("1");   //  log the order of execution
@@ -26,17 +33,17 @@ fetch("https://jsonplaceholder.typicode.com/users")
   });
 console.log("4");   // console will log 1 4 2 3
 
+//////////////////////////////////////////////////////////////
+// Method 3: use async/await to handle the promise
+// Not messy AND everything happens in the expected order of execution.
+async function getUser() {
+  const response = await fetch("https://jsonplaceholder.typicode.com/users");
+  const data = await response.json();
+  name.innerHTML += "<br>";
+  name.innerText += "Name: " + data[0].name + " (Method 3)";
+}
 
-  // Method 3: use async/await to handle the promise
-  // Not messy AND everything happens in the expected order of execution.
-  async function getUser() {
-    const response = await fetch("https://jsonplaceholder.typicode.com/users");
-    const data = await response.json();
-    name.innerHTML += "<br>";
-    name.innerText += "Name: " + data[0].name + " (Method 3)";
-  }
-
-  getUser();
+getUser();
 
 /************************************
  * Authoring a Promise
