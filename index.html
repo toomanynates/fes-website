@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<!-- This project was for M03-L03-e-portfolio
+  -->
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nate Leavitt</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://kit.fontawesome.com/a1b45cec90.js" crossorigin="anonymous"></script> 
+  <script src="./index.js"></script>
+</head>
+
+<body>
+  <section id="about-me">
+    <nav>
+      <div class="personal__logo">Nate Leavitt</div>
+      <ul class="nav__link--list">
+        <li class="nav__link">
+          <a href="#languages" class="
+            nav__link--anchor
+            link__hover-effect
+            link__hover-effect--black
+          ">Languages</a>
+        </li>
+        <li class="nav__link">
+          <a href="#projects" class="
+            nav__link--anchor
+            link__hover-effect
+            link__hover-effect--black
+          ">Projects</a>
+        </li>
+        <li class="nav__link">
+          <a href="mailto:email@email.com" class="
+            nav__link--anchor
+            nav__link--anchor-primary
+          ">Contact</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="flex flex-1">
+      <div class="about-me__info row">
+        <div class="about-me__info--container">
+          <figure class="about-me__picture--mask">
+            <img src="./assets/me.jpg" class="about-me__picture" alt="Picture of Nate Leavitt">
+          </figure>
+          <h1 class="about-me__info--title">
+            Hey! I'm <span class="text--purple">Nate Leavitt</span>&nbsp;<span class="wave">👋</span>
+          </h1>
+          <p class="about-me__info--para">
+            Here are some of the projects I've built so far.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+
+  <section id="projects"> <!-- Project 1 -->
+    <div class="container">
+      <div class="row">
+        <!-- <h1 class="section__title">Here are some of my <span class="text--purple">projects</span></h1> -->
+        <ul class="project__list">
+          <li class="project" onclick="openWindow('M02-L02-mini-project/index.html');" style="cursor: pointer;">
+            <div id="project1" class="project__wrapper">
+              <img src="./assets/M02-L02-mini-project.jpg" class="project__img" alt="Car subscription project">
+              <div class="project__description">
+                <h3 class="project__description--title">First Project</h3>
+                <h4 class="project__description--sub-title">
+                  Html, CSS
+                </h4>
+                <p class="project__description--para">
+                  This was the first project we did. We learned about basic HTML and CSS.
+                </p>
+
+              </div>
+            </div>
+          </li>
+
+          <li class="project"> <!-- Project 2 -->
+            <div class="project__wrapper" onclick="openWindow('M03-L03-e-commerce/index.html');" style="cursor: pointer;">
+              <img src="./assets/M03-L03-e-commerce.jpg" class="project__img" alt="Car subscription project">
+              <div class="project__description">
+                <h3 class="project__description--title">Online library platform project</h3>
+                <h4 class="project__description--sub-title">
+                  Html, CSS, JavaScript
+                </h4>
+                <p class="project__description--para">
+                  This project features blocks of elements with different priorities, and some basic JavaScript.
+                </p>
+
+              </div>
+            </div>
+          </li>
+
+          <li class="project"> <!-- Project 3 -->
+            <div class="project__wrapper" onclick="openWindow('M03-L03-e-portfolio/index.html');" style="cursor: pointer;">
+              <img src="./assets/M03-L03-e-portfolio.jpg" class="project__img" alt="Car subscription project">
+              <div class="project__description">
+                <h3 class="project__description--title">First Portfolio Project</h3>
+                <h4 class="project__description--sub-title">
+                  Html, CSS
+                </h4>
+                <p class="project__description--para">
+                  This project is a portfolio project to showcase different things that I've built so far. 
+                </p>
+
+              </div>
+            </div>
+          </li>
+
+          <li class="project"> <!-- Project 4 -->
+            <div class="project__wrapper" onclick="openWindow('https://toomanynates.github.io/fes-mod03-les03-final/');" style="cursor: pointer;">
+              <img src="./assets/M03-L03-final-project.jpg" class="project__img" alt="Car subscription project">
+              <div class="project__description">
+                <h3 class="project__description--title">Final Project: Template</h3>
+                <h4 class="project__description--sub-title">
+                  Html, CSS, JavaScript
+                </h4>
+                <p class="project__description--para">
+                  This was the first "solo" project that I was expected to complete on my own by consulting a web page to use as a model. The assignment was to copy the layout 
+                </p>
+
+              </div>
+            </div>
+          </li>
+          
+          <li class="project"> <!-- Project 5 -->
+            <div class="project__wrapper" onclick="openWindow('M04-L04-problem-solving/index.html');" style="cursor: pointer;">
+              <img src="./assets/M04-L04-problem-solving.jpg" class="project__img" alt="Car subscription project">
+              <div class="project__description">
+                <h3 class="project__description--title">JavaScript Problem Solving</h3>
+                <h4 class="project__description--sub-title">
+                  JavaScript
+                </h4>
+                <p class="project__description--para">
+                  Visually, by far the most boring! This project was about solving elementary, intermediate, and more advanced JavaScript problems all on my own. The challenge titles are inboldface. The text below it was what I had to build with functions and math and programming to solve the problem.  
+                </p>
+
+              </div>
+            </div>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <div class="row footer__row">
+      <a href="#" class="footer__anchor">
+        <figure class="footer__logo">
+          <img src="./assets/logo.svg" class="footer__logo--img" alt="">
+        </figure>
+        <span class="footer__logo--popper">
+          Top
+          <i class="fas fa-arrow-up"></i>
+        </span>
+      </a>
+      <div class="footer__social--list">
+        <a href="https://google.com" target="_blank" class="
+          footer__social--link
+          link__hover-effect
+          link__hover-effect--white
+        " target="_blank">GitHub</a>
+        <a href="https://google.com" target="_blank" class="
+          footer__social--link
+          link__hover-effect
+          link__hover-effect--white
+        " target="_blank">LinkedIn</a>
+        <a href="mailto:email@email.com" target="_blank" class="
+          footer__social--link
+          link__hover-effect
+          link__hover-effect--white
+        " target="_blank">Email</a>
+        <a href="./assets/Example Resume.pdf" target="_blank" class="
+          footer__social--link
+          link__hover-effect
+          link__hover-effect--white
+        " target="_blank">Resume</a>
+      </div>
+      <div class="footer__copyright">Copyright © 2026 Nathan Leavitt</div>
+    </div>
+  </footer>
+</body>
+
+</html>
