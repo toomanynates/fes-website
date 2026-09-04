@@ -1,2 +1,1 @@
-# fes-website
-the personal website i'm building for the FES bootcamp
+The site is live at https://toomanynates.github.io/fes-M05-CH02/
